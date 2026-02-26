@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+      :root {
+        --dock-space: 110px;
+      }
+
+      body {
+        margin: 0;
+        overflow: hidden;
+        background:
+          radial-gradient(
+            circle at 10% 15%,
+            rgba(255, 214, 102, 0.35) 0%,
+            rgba(255, 214, 102, 0) 38%
+          ),
+          radial-gradient(
+            circle at 88% 80%,
+            rgba(111, 255, 233, 0.32) 0%,
+            rgba(111, 255, 233, 0) 42%
+          ),
+          linear-gradient(135deg, #f6f9ff 0%, #edf5ff 48%, #fff8ee 100%);
+      }
+
+      .moving-bar {
+        position: fixed;
+        bottom: 20px;
+        left: 0;
+        width: 100%;
+      }
+
+      .moving-btn {
+        position: relative;
+        animation: slide 12s linear infinite alternate;
+      }
+
+      @keyframes slide {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(calc(100vw - 160px));
+        }
+      }
+
+      .hero-strip {
+        position: relative;
+        margin-top: 1rem;
+        border-radius: 16px;
+        overflow: hidden;
+        height: calc(35vh - 1rem);
+        min-height: 170px;
+      }
+
+      .hero-strip img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .hero-strip::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.2) 0%,
+          rgba(0, 0, 0, 0.55) 100%
+        );
+      }
+
+      .hero-caption {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        margin: 0;
+        padding: 1rem;
+        color: #fff;
+        font-size: clamp(1.2rem, 2.2vw, 2rem);
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        text-align: center;
+      }
+
+      .screen-layout {
+        height: calc(100vh - var(--dock-space));
+        margin: 0 auto;
+        padding: 1rem;
+      }
+
+      .top-row {
+        height: 65vh;
+      }
+
+      .top-row .col-md-4 {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 0.75rem;
+      }
+
+      .top-row .col-md-4 p {
+        margin: 0;
+        overflow-y: auto;
+        font-size: 0.92rem;
+        text-align: left;
+      }
+
+      .top-row .col-md-4 img {
+        width: 42% !important;
+        margin: 0.5rem auto 0.75rem !important;
+        float: none !important;
+      }
+
+      @media (max-width: 767.98px) {
+        body {
+          overflow: auto;
+        }
+
+        .screen-layout {
+          height: auto;
+        }
+
+        .top-row {
+          height: auto;
+        }
+
+        .top-row .col-md-4 {
+          height: auto;
+        }
+
+        .top-row .col-md-4 p {
+          overflow: visible;
+        }
+
+        .hero-strip {
+          height: 220px;
+        }
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <title>Booty</title>
+    <script src="booty.js" defer></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container screen-layout position-relative">
+      <div class="row top-row">
+        <div class="col-md-4 text-start">
+          <img
+            src="./images/img.png"
+            id="myImg"
+            class="float-lg-end me-3 ms-4 w-50"
+            alt="img"
+          />
+          <p>
+            Science rarely gives instant answers, but it always teaches people
+            to ask better questions. In labs, observatories, codebases, and
+            equations, we search not for magic but for patterns: why particles
+            fall, how stars form, and which rules shape life. Every discovery
+            starts with doubt, passes through mistakes, and usually ends with a
+            stronger hypothesis rather than a final truth. That is the strength
+            of the scientific method: it does not ask for belief, it asks for
+            verification. When a result can be repeated again and again, it
+            becomes a foundation for technology, medicine, communication, and
+            progress.
+          </p>
+        </div>
+        <div class="col-md-4 text-start">
+          <img
+            src="./images/img_1.png"
+            id="myImg2"
+            class="float-lg-end me-3 ms-4 w-50"
+            alt="img"
+          />
+          <p>
+            Love often appears in small things: a message asking if you got
+            home safely, tea made without being asked, the patience to listen
+            to the end even on a hard day. It is not always loud or dramatic;
+            sometimes it is a quiet “I am here” that means more than promises.
+            Mature love includes respect for boundaries, the courage to speak
+            honestly, and the discipline to work through difficult seasons
+            together. It does not erase differences, but it teaches people to
+            negotiate without breaking each other. That is its beauty: love can
+            make us vulnerable, and through that vulnerability it creates a
+            sense of home.
+          </p>
+        </div>
+        <div class="col-md-4 text-start">
+          <img
+            src="./images/img_2.png"
+            id="myImg3"
+            class="float-lg-end me-3 ms-4 w-50"
+            alt="img"
+          />
+          <p>
+            Business starts not with reports or logos, but with clear value for
+            the customer. If a product solves a real problem, it can grow; if
+            it does not, marketing alone will not save it for long. Strong
+            teams constantly test assumptions: what people buy, why they leave,
+            where the funnel leaks, how much acquisition costs, and how
+            retention can improve. Profit matters, but resilience matters more.
+            Process quality, reputation, service standards, and decision speed
+            determine whether a company survives market turbulence. In the end,
+            the winner is rarely the loudest one, but the most disciplined one.
+          </p>
+        </div>
+      </div>
+
+      <section class="hero-strip">
+        <img src="./images/img_3.png" alt="Wide section image" />
+        <p class="hero-caption">Bootstrap Vibes</p>
+      </section>
+    </div>
+    <div class="position-fixed bottom-0 start-0 w-100">
+      <div class="moving-bar d-flex justify-content-start p-3">
+        <button id="toggleBtn" class="moving-btn btn btn-danger shadow">
+          Toggle Layout
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
