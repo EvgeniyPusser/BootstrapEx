@@ -98,14 +98,14 @@
         align-items: stretch;
       }
 
-      .top-row .col-md-4 {
+      .top-row .feature-col {
         display: flex;
         flex-direction: column;
         height: 100%;
         padding: clamp(0.55rem, 1.2vw, 0.75rem);
       }
 
-      .top-row .col-md-4 p {
+      .top-row .feature-col p {
         margin: 0;
         overflow-y: auto;
         font-size: clamp(0.88rem, 1.4vw, 0.95rem);
@@ -113,7 +113,7 @@
         text-align: left;
       }
 
-      .top-row .col-md-4 img {
+      .top-row .feature-col img {
         width: min(190px, 45%) !important;
         margin: 0.5rem auto 0.75rem !important;
         float: none !important;
@@ -124,8 +124,23 @@
           --dock-space: 96px;
         }
 
-        .top-row .col-md-4 p {
+        .top-row .feature-col {
+          padding: 0.6rem 0.4rem;
+        }
+
+        .top-row .feature-col p {
           max-height: 240px;
+          font-size: 0.93rem;
+        }
+      }
+
+      @media (min-width: 768px) and (max-width: 991.98px) {
+        .top-row .feature-col {
+          min-height: 280px;
+        }
+
+        .top-row .feature-col:last-child p {
+          max-height: none;
         }
       }
 
@@ -139,12 +154,12 @@
           padding-bottom: 5.5rem;
         }
 
-        .top-row .col-md-4 {
+        .top-row .feature-col {
           height: auto;
           padding: 0.5rem 0.25rem;
         }
 
-        .top-row .col-md-4 p {
+        .top-row .feature-col p {
           overflow: visible;
           max-height: none;
           font-size: 0.94rem;
@@ -185,7 +200,7 @@
   <body>
     <div class="container screen-layout position-relative">
       <div class="row top-row">
-        <div class="col-md-4 text-start">
+        <div class="feature-col col-12 col-md-6 col-lg-4 text-start">
           <img
             src="./images/img.png"
             id="myImg"
@@ -205,7 +220,7 @@
             progress.
           </p>
         </div>
-        <div class="col-md-4 text-start">
+        <div class="feature-col col-12 col-md-6 col-lg-4 text-start">
           <img
             src="./images/img_1.png"
             id="myImg2"
@@ -225,7 +240,7 @@
             sense of home.
           </p>
         </div>
-        <div class="col-md-4 text-start">
+        <div class="feature-col col-12 col-md-12 col-lg-4 text-start">
           <img
             src="./images/img_2.png"
             id="myImg3"
@@ -248,7 +263,9 @@
 
       <section class="hero-strip">
         <img src="./images/img_3.png" alt="Wide section image" />
-        <p class="hero-caption">Bootstrap Vibes</p>
+        <p class="hero-caption">
+          Pusser-CavalierGluckClub-bogomazovpusser.com-holymovela.com
+        </p>
       </section>
     </div>
     <div class="position-fixed bottom-0 start-0 w-100">
