@@ -8,7 +8,8 @@
 
       body {
         margin: 0;
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: auto;
         background:
           radial-gradient(
             circle at 10% 15%,
@@ -40,7 +41,7 @@
           transform: translateX(0);
         }
         to {
-          transform: translateX(calc(100vw - 160px));
+          transform: translateX(max(0px, calc(100vw - 180px)));
         }
       }
 
@@ -87,62 +88,93 @@
       }
 
       .screen-layout {
-        height: calc(100vh - var(--dock-space));
+        min-height: calc(100vh - var(--dock-space));
+        width: min(1200px, 100%);
         margin: 0 auto;
-        padding: 1rem;
+        padding: clamp(0.75rem, 2vw, 1.25rem);
       }
 
       .top-row {
-        height: 65vh;
+        align-items: stretch;
       }
 
       .top-row .col-md-4 {
         display: flex;
         flex-direction: column;
         height: 100%;
-        padding: 0.75rem;
+        padding: clamp(0.55rem, 1.2vw, 0.75rem);
       }
 
       .top-row .col-md-4 p {
         margin: 0;
         overflow-y: auto;
-        font-size: 0.92rem;
+        font-size: clamp(0.88rem, 1.4vw, 0.95rem);
+        line-height: 1.5;
         text-align: left;
       }
 
       .top-row .col-md-4 img {
-        width: 42% !important;
+        width: min(190px, 45%) !important;
         margin: 0.5rem auto 0.75rem !important;
         float: none !important;
       }
 
+      @media (max-width: 991.98px) {
+        :root {
+          --dock-space: 96px;
+        }
+
+        .top-row .col-md-4 p {
+          max-height: 240px;
+        }
+      }
+
       @media (max-width: 767.98px) {
-        body {
-          overflow: auto;
+        :root {
+          --dock-space: 86px;
         }
 
         .screen-layout {
-          height: auto;
-        }
-
-        .top-row {
-          height: auto;
+          min-height: auto;
+          padding-bottom: 5.5rem;
         }
 
         .top-row .col-md-4 {
           height: auto;
+          padding: 0.5rem 0.25rem;
         }
 
         .top-row .col-md-4 p {
           overflow: visible;
+          max-height: none;
+          font-size: 0.94rem;
         }
 
         .hero-strip {
-          height: 220px;
+          margin-top: 0.75rem;
+          height: 200px;
+          min-height: 160px;
+          border-radius: 12px;
+        }
+
+        .hero-caption {
+          font-size: clamp(1rem, 5vw, 1.25rem);
+          letter-spacing: 0.03em;
+        }
+
+        .moving-bar {
+          bottom: 10px;
+          padding: 0.75rem !important;
+        }
+
+        .moving-btn {
+          font-size: 0.9rem;
+          padding: 0.45rem 0.8rem;
         }
       }
     </style>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Booty</title>
     <script src="booty.js" defer></script>
     <link
